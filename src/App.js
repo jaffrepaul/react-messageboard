@@ -55,6 +55,12 @@ class App extends Component {
               <PostList posts={this.state.posts}/>
             )}
           />
+          <Route
+            path='/addpost'
+            render={() => (
+              <PostAdd />
+            )}
+          />
           <Redirect exact from='/' to='/posts' />
           <Route component={FourOhFour} />
         </Switch>

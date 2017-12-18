@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import PostListEntry from './PostListEntry'
 
 class PostList extends React.Component {
@@ -14,6 +16,7 @@ class PostList extends React.Component {
           )
         }
         )}
+        <Link to={'/addpost'}>Create New Post</Link>
       </div>
     );
   }
