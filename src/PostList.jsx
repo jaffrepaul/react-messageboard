@@ -2,15 +2,18 @@ import React from 'react';
 import PostListEntry from './PostListEntry'
 
 class PostList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
       <div>
-        <PostListEntry />
+        {this.props.posts.map((post, idx) => {
+          return (
+            <PostListEntry
+              key={idx}
+              postBody={post}
+            />
+          )
+        }
+        )}
       </div>
     );
   }

@@ -9,7 +9,7 @@ class PostListEntry extends React.Component {
   render() {
     return (
       <div>
-        Post List Entry!
+        {this.props.postBody.title}
       </div>
     );
   }
