@@ -62,6 +62,7 @@ class PostSubmit extends React.Component {
         <input name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
         User
         <input name='user' placeholder="Add Username" value={this.state.user} onChange={this.handleChange} />
+        
         <button onClick={this.clearPost}>Cancel</button>
         <button onClick={this.createPost}>Create Post</button>
         <button><Link to='/posts'>Back to Posts</Link></button>

@@ -6,7 +6,11 @@ import PostList from './PostList';
 import PostSubmit from './PostSubmit';
 import PostEdit from './PostListEntryDetail';
 
-const FourOhFour = () => <h1>404 - This Page Does Not Exist</h1>;
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>404 - No page available at <code>{location.pathname}</code></h3>
+  </div>
+)
 
 class App extends Component {
   constructor(props) {
@@ -79,7 +83,7 @@ class App extends Component {
             )}
           />
           <Redirect exact from='/' to='/posts' />
-          <Route component={FourOhFour} />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     );

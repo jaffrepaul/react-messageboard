@@ -6,6 +6,12 @@ class PostListEntry extends React.Component {
     this.state = {};
   }
 
+  // route() {
+  //   this.props.history.push({
+  //
+  //   )
+  // }
+
   render() {
     return (
       <div className='closed-post'>
