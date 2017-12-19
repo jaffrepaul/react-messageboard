@@ -8,8 +8,9 @@ class PostListEntry extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.postBody.title}
+      <div className='closed-post'>
+        <p>{this.props.postBody.title}</p>
+        <p>Posted by: {this.props.postBody.user} | {this.props.postBody.replies.length} Comments >> </p>
       </div>
     );
   }

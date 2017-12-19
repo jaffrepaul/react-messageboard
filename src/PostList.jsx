@@ -16,7 +16,7 @@ class PostList extends React.Component {
           )
         }
         )}
-        <Link to={'/addpost'}>Create New Post</Link>
+        <button><Link to={'/addpost'}>Create New Post</Link></button>
       </div>
     );
   }
