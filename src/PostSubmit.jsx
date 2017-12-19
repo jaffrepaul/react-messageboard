@@ -6,11 +6,12 @@ class PostSubmit extends React.Component {
     super(props);
     this.state = {
       title: '',
-      message:'',
+      message: '',
       user: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.createPost = this.createPost.bind(this);
+    this.clearPost = this.clearPost.bind(this);
   }
 
   /*
@@ -26,7 +27,7 @@ class PostSubmit extends React.Component {
 
   /*
   method will take user's input text stored in state by handleChange ->
-  pass values as obj into addPost, which sets state of posts in App.js
+  pass values as obj into addPost, which sets state of posts in App.js ->
   clear the input fields after post is submitted
   */
   createPost() {
@@ -44,6 +45,14 @@ class PostSubmit extends React.Component {
     });
   }
 
+  clearPost() {
+    this.setState({
+      title: '',
+      message: '',
+      user: '',
+    })
+  }
+
   render() {
     return (
       <div>
@@ -53,7 +62,7 @@ class PostSubmit extends React.Component {
         <input name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
         User
         <input name='user' placeholder="Add Username" value={this.state.user} onChange={this.handleChange} />
-        <button>Cancel</button>
+        <button onClick={this.clearPost}>Cancel</button>
         <button onClick={this.createPost}>Create Post</button>
         <button><Link to='/posts'>Back to Posts</Link></button>
       </div>
