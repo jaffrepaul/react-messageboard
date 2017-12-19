@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 class PostSubmit extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +10,7 @@ class PostSubmit extends React.Component {
       user: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.createPost = this.createPost.bind(this);
   }
 
   /*
@@ -26,7 +26,7 @@ class PostSubmit extends React.Component {
 
   /*
   method will take user's input text stored in state by handleChange ->
-  pass values as obj into addPost
+  pass values as obj into addPost, which sets state of posts in App.js
   clear the input fields after post is submitted
   */
   createPost() {
@@ -36,12 +36,12 @@ class PostSubmit extends React.Component {
       user: this.state.user,
       replies: [],
     });
+    alert('Your post has been submitted')
     this.setState({
       title: '',
       message: '',
       user: '',
     });
-    this.props.history.push('/posts');
   }
 
   render() {
@@ -53,9 +53,8 @@ class PostSubmit extends React.Component {
         <input name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
         User
         <input name='user' placeholder="Add Username" value={this.state.user} onChange={this.handleChange} />
-
         <button>Cancel</button>
-        <button onclick={this.createPost}>Create Post</button>
+        <button onClick={this.createPost}>Create Post</button>
         <button><Link to='/posts'>Back to Posts</Link></button>
       </div>
     );
