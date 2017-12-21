@@ -64,7 +64,7 @@ class PostSubmit extends React.Component {
         <input name='title' placeholder="Add Post Title" value={this.state.title} onChange={this.handleChange} />
 
         Message
-        <input name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
+        <textarea name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
 
         User
         <input name='user' placeholder="Add Username" value={this.state.user} onChange={this.handleChange} />

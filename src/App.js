@@ -23,8 +23,8 @@ class App extends Component {
           user: 'user1',
           replies: [
             {
-              user: 'replyuser1',
-              reply: 'replymessage1'
+              user: 'reply user1',
+              reply: 'reply message1'
             }
           ],
           date: '12/18/2017',
@@ -36,12 +36,12 @@ class App extends Component {
           user: 'user2',
           replies: [
             {
-              user: 'replyuser2',
-              reply: 'replymessage2'
+              user: 'reply user2',
+              reply: 'reply message2'
             },
             {
-              user: 'replyuser3',
-              reply: 'replymessage3'
+              user: 'reply user3',
+              reply: 'reply message3'
             },
           ],
           date: '12/18/2017',
