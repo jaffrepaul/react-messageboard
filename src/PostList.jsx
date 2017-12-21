@@ -11,6 +11,7 @@ class PostList extends React.Component {
           return (
             <PostListEntry
               key={idx}
+              id={idx}
               postBody={post}
             />
           )

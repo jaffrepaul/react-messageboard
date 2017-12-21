@@ -4,13 +4,13 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import PostList from './PostList';
 import PostSubmit from './PostSubmit';
-import PostEdit from './PostListEntryDetail';
+import PostEntryDetail from './PostEntryDetail';
 
-const NoMatch = ({ location }) => (
-  <div>
-    <h3>404 - No page available at <code>{location.pathname}</code></h3>
-  </div>
-)
+// const NoMatch = ({ location }) => (
+//   <div>
+//     <h3>404 - No page available at <code>{location.pathname}</code></h3>
+//   </div>
+// )
 
 class App extends Component {
   constructor(props) {
@@ -82,8 +82,14 @@ class App extends Component {
               <PostSubmit addPost={this.addPost} />
             )}
           />
+        <Route
+          path='/posts/:id'
+          render={() => (
+            <PostEntryDetail posts={this.state.posts} />
+          )}
+          />
           <Redirect exact from='/' to='/posts' />
-          <Route component={NoMatch} />
+          {/*<Route component={NoMatch} />*/}
         </Switch>
       </div>
     );
