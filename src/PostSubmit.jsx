@@ -29,8 +29,8 @@ class PostSubmit extends React.Component {
   method will take user's input text stored in state by handleChange ->
   pass values as obj into addPost, which sets state of posts in App.js ->
   clear the input fields after post is submitted
-  push /posts onto browser history stack to access post IDs later
-  note: uses withRouter to 'connect' path to the router 
+  forces UI to redirect back to /posts after form submit
+  note: uses withRouter to 'connect' path to the router
   */
   createPost(e) {
     e.preventDefault();

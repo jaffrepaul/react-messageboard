@@ -21,8 +21,8 @@ class PostListEntry extends React.Component {
 
   render() {
     return (
-      <div className='closed-post'>
-        <p onClick={this.route}>{this.props.postBody.title}</p>
+      <div className='closed-post' onClick={this.route}>
+        <p>{this.props.postBody.title}</p>
         <p>Posted by: {this.props.postBody.user} | {this.props.postBody.replies.length} Comments >> </p>
       </div>
     );
