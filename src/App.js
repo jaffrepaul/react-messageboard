@@ -20,12 +20,16 @@ class App extends Component {
       posts: [
         {
           title: 'title1',
+          content: 'content1',
           user: 'user1',
-          message: 'message1',
           replies: [
             {
-              user: 'userA',
-              reply: 'messageA'
+              user: 'replyuser1',
+              message: 'message1'
+            },
+            {
+              user: 'replyuser2',
+              message: 'message2'
             }
           ],
           date: '12/18/2017',
@@ -33,16 +37,16 @@ class App extends Component {
         },
         {
           title: 'title2',
+          content: 'content2',
           user: 'user2',
-          message: 'message2',
           replies: [
             {
-              user: 'userB',
-              reply: 'messageB'
+              user: 'replyuser3',
+              message: 'message3'
             },
             {
-              user: 'userC',
-              reply: 'messageC'
+              user: 'replyuser4',
+              message: 'message4'
             }
           ],
           date: '12/18/2017',

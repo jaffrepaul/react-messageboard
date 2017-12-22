@@ -6,7 +6,7 @@ class PostSubmit extends React.Component {
     super(props);
     this.state = {
       title: '',
-      message: '',
+      content: '',
       user: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -43,15 +43,14 @@ class PostSubmit extends React.Component {
     if (this.state.title && this.state.content) {
       this.props.addPost({
         title: this.state.title,
-        message: this.state.message,
-        user: this.state.user,
-        replies: []
+        content: this.state.content,
+        replies: [],
+        date: a,
+        time: b
       });
-      alert('Your post has been submitted');
       this.setState({
         title: '',
-        message: '',
-        user: ''
+        content: ''
       });
       this.props.history.push('/posts');
     }
@@ -60,7 +59,7 @@ class PostSubmit extends React.Component {
   clearPost() {
     this.setState({
       title: '',
-      message: '',
+      content: '',
       user: ''
     });
   }
@@ -77,9 +76,9 @@ class PostSubmit extends React.Component {
         />
         Message
         <textarea
-          name="message"
+          name="content"
           placeholder="Add Post Message"
-          value={this.state.message}
+          value={this.state.content}
           onChange={this.handleChange}
         />
         User

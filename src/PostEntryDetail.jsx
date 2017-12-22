@@ -5,7 +5,7 @@ class PostEntryDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reply: '',
+      content: '',
       user: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -24,7 +24,8 @@ class PostEntryDetail extends React.Component {
   pass in values of form as state values & id from history
   clear form -> state back to empty string
   */
-  addReply() {
+  addReply(e) {
+    e.preventDefault();
     let a = Date.now();
     a = new Date(a);
     let b = a.toLocaleTimeString();
@@ -32,10 +33,7 @@ class PostEntryDetail extends React.Component {
 
     if (this.state.user && this.state.content) {
       this.props.editPost(
-        {
-          user: this.state.user,
-          message: this.state.content
-        },
+        { user: this.state.user, message: this.state.content },
         this.props.history.location.state.id,
         a,
         b
@@ -55,7 +53,7 @@ class PostEntryDetail extends React.Component {
       <div>
         <h2>{this.props.history.location.state.post.title}</h2>
         <p>By: {this.props.history.location.state.post.user}</p>
-        <p>{this.props.history.location.state.post.message}</p>
+        <p>{this.props.history.location.state.post.content}</p>
         <button>
           <Link to="/posts">Back to Posts</Link>
         </button>
@@ -66,11 +64,12 @@ class PostEntryDetail extends React.Component {
           {this.props.history.location.state.post.replies.map((reply, idx) => {
             return (
               <div key={idx}>
-                <p>{reply.user}</p>
-                <p>{reply.reply}</p>
+                {reply.user}
+                {reply.message}
               </div>
             );
           })}
+          Last Updated:
           {this.props.history.location.state.post.date}
           {this.props.history.location.state.post.time}
         </div>
@@ -79,9 +78,9 @@ class PostEntryDetail extends React.Component {
         <form>
           Reply Message:
           <textarea
-            name="reply"
-            placeholder="Add Reply"
-            value={this.state.reply}
+            name="content"
+            placeholder="Add Response"
+            value={this.state.content}
             onChange={this.handleChange}
           />
           <br />

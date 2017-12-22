@@ -10,9 +10,7 @@ class PostList extends React.Component {
         {this.props.posts.map((post, idx) => {
           return <PostListEntry key={idx} id={idx} postBody={post} />;
         })}
-        <button>
-          <Link to={'/addpost'}>Create New Post</Link>
-        </button>
+        <Link to={'/addpost'}>Add Post</Link>
       </div>
     );
   }
