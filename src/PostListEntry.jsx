@@ -15,18 +15,22 @@ class PostListEntry extends React.Component {
   route() {
     this.props.history.push({
       pathname: `/posts/${this.props.id}`,
-      state: { post: this.props.postBody, id: this.props.id }
+      state: {
+        post: this.props.postBody,
+        id: this.props.id
+      }
     });
   }
 
   render() {
     return (
       <div className="closed-post" onClick={this.route}>
-        <p>{this.props.postBody.title}</p>
-        <p>
-          Posted by: {this.props.postBody.user} |{' '}
-          {this.props.postBody.replies.length} Comments >>{' '}
-        </p>
+        <strong>{this.props.postBody.title}</strong>
+        <div>
+          <span>Posted by: {this.props.postBody.user} | </span>
+          <span>{this.props.postBody.replies.length} Comments | </span>
+          <span>Last Update: {this.props.postBody.date} @ {this.props.postBody.time}</span>
+        </div>
       </div>
     );
   }

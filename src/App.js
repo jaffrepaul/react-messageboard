@@ -55,25 +55,23 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Switch>
-          <Route
-            exact
-            path="/posts"
-            render={() => <PostList posts={this.state.posts} />}
-          />
-          <Route
-            path="/addpost"
-            render={() => <PostSubmit addPost={this.addPost} />}
-          />
-          <Route
-            path="/posts/:id"
-            render={() => <PostEntryDetail editPost={this.editPost} />}
-          />
-          <Redirect exact from="/" to="/posts" />
-          {/*<Route component={NoMatch} />*/}
-        </Switch>
-      </div>
+      <Switch>
+        <Route
+          exact
+          path="/posts"
+          render={() => <PostList posts={this.state.posts} />}
+        />
+        <Route
+          path="/addpost"
+          render={() => <PostSubmit addPost={this.addPost} />}
+        />
+        <Route
+          path="/posts/:id"
+          render={() => <PostEntryDetail editPost={this.editPost} />}
+        />
+        <Redirect exact from="/" to="/posts" />
+        {/*<Route component={NoMatch} />*/}
+      </Switch>
     );
   }
 }

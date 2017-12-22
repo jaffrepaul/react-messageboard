@@ -3,12 +3,22 @@ import { Link } from 'react-router-dom';
 
 import PostListEntry from './PostListEntry';
 
+// note: can refactor render logic to be less code
 class PostList extends React.Component {
   render() {
     let pageContent = null;
     const hasPosts = this.props.posts.length;
 
-    if (hasPosts) {
+    if (!hasPosts) {
+      pageContent = (
+        <div>
+          <p>There are currently no posts...add one!</p>
+          <button>
+            <Link to={'/addpost'}>Add Post</Link>
+          </button>
+        </div>
+      );
+    } else {
       pageContent = (
         <div>
           {this.props.posts.map((post, idx) => {
@@ -19,16 +29,8 @@ class PostList extends React.Component {
           </button>
         </div>
       );
-    } else {
-      pageContent = (
-      <div>
-        <p>There are currently no posts...add one!</p>
-        <button>
-          <Link to={'/addpost'}>Add Post</Link>
-        </button>
-      </div>
-      );
     }
+
     return (
       <div>
         <h1>The Fairygodboss Message Board</h1>

@@ -35,6 +35,7 @@ class PostSubmit extends React.Component {
   createPost(e) {
     e.preventDefault();
 
+    // note: refactor to somehting cleaner
     let a = Date.now();
     a = new Date(a);
     let b = a.toLocaleTimeString();
@@ -44,13 +45,15 @@ class PostSubmit extends React.Component {
       this.props.addPost({
         title: this.state.title,
         content: this.state.content,
+        user: this.state.user,
         replies: [],
         date: a,
         time: b
       });
       this.setState({
         title: '',
-        content: ''
+        content: '',
+        user: ''
       });
       this.props.history.push('/posts');
     }

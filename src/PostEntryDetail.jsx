@@ -70,7 +70,7 @@ class PostEntryDetail extends React.Component {
             );
           })}
           Last Updated:
-          {this.props.history.location.state.post.date}
+          {this.props.history.location.state.post.date}{' '}
           {this.props.history.location.state.post.time}
         </div>
         <br />
