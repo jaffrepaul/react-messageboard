@@ -8,10 +8,29 @@ class PostEntryDetail extends React.Component {
       reply: '',
       user: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    console.log(props);
+  }
+
+  handleChange(e) {
+    let fieldName = e.target.name;
+    this.setState({
+      [fieldName]: e.target.value
+    });
   }
 
   /*
+  pass down func as props to this component to reply to post
+  create new func to call func at add.js
+  pass in values of form as state values & id from history
+  clear form -> state back to empty string
+  */
+  // addReply() {
+  //
+  // }
 
+  /*
+  note: could be refactored to have reply form sub component
   */
   render() {
     return (
@@ -19,21 +38,44 @@ class PostEntryDetail extends React.Component {
         <h2>{this.props.history.location.state.post.title}</h2>
         <p>By: {this.props.history.location.state.post.user}</p>
         <p>{this.props.history.location.state.post.message}</p>
-        ------
+        <button>
+          <Link to="/posts">Back to Posts</Link>
+        </button>
+        <br />
+        <hr />
         <div>
-          Responses
+          <strong>Responses</strong>
           {this.props.history.location.state.post.replies.map((reply, idx) => {
             return (
               <div key={idx}>
-                {reply.user}
-                {reply.reply}
+                <p>{reply.user}:</p>
+                <p>{reply.reply}</p>
               </div>
             );
           })}
         </div>
-        <button>
-          <Link to="/posts">Back to Posts</Link>
-        </button>
+        <br />
+        <hr />
+        <form>
+          Reply Message:
+          <textarea
+            name="reply"
+            placeholder="Add Reply"
+            value={this.state.reply}
+            onChange={this.handleChange}
+          />
+          <br />
+          Reply User:
+          <input
+            name="user"
+            placeholder="Add Username"
+            value={this.state.user}
+            onChange={this.handleChange}
+          />
+          <button>
+            <Link to="/posts">Post Reply</Link>
+          </button>
+        </form>
       </div>
     );
   }

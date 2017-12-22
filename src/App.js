@@ -6,6 +6,7 @@ import PostList from './PostList';
 import PostSubmit from './PostSubmit';
 import PostEntryDetail from './PostEntryDetail';
 
+// note: comment out until routes are dynamic
 // const NoMatch = ({ location }) => (
 //   <div>
 //     <h3>404 - No page available at <code>{location.pathname}</code></h3>
@@ -19,12 +20,12 @@ class App extends Component {
       posts: [
         {
           title: 'title1',
-          message: 'message1',
           user: 'user1',
+          message: 'message1',
           replies: [
             {
-              user: 'reply user1',
-              reply: 'reply message1'
+              user: 'userA',
+              reply: 'messageA'
             }
           ],
           date: '12/18/2017',
@@ -32,16 +33,16 @@ class App extends Component {
         },
         {
           title: 'title2',
-          message: 'message2',
           user: 'user2',
+          message: 'message2',
           replies: [
             {
-              user: 'reply user2',
-              reply: 'reply message2'
+              user: 'userB',
+              reply: 'messageB'
             },
             {
-              user: 'reply user3',
-              reply: 'reply message3'
+              user: 'userC',
+              reply: 'messageC'
             }
           ],
           date: '12/18/2017',
@@ -66,6 +67,20 @@ class App extends Component {
     });
   }
 
+  /*
+  this method takes in a post reply and a postID
+  stores state of currentPosts
+  pushes reply to currentPosts replies array of specific post using postID
+  setState of posts to currentPosts (including reply)
+  */
+  editPost(reply, postID) {
+    const currentPosts = this.state.posts;
+    currentPosts[postID].replies.push(reply);
+    this.setState({
+      posts: currentPosts
+    });
+  }
+
   render() {
     return (
       <div>
@@ -81,7 +96,7 @@ class App extends Component {
           />
           <Route
             path="/posts/:id"
-            render={() => <PostEntryDetail posts={this.state.posts} />}
+            render={() => <PostEntryDetail editPost={this.editPost} />}
           />
           <Redirect exact from="/" to="/posts" />
           {/*<Route component={NoMatch} />*/}
