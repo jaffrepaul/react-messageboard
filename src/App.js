@@ -28,7 +28,7 @@ class App extends Component {
             }
           ],
           date: '12/18/2017',
-          time: '5:19:44 PM',
+          time: '5:19:44 PM'
         },
         {
           title: 'title2',
@@ -42,11 +42,11 @@ class App extends Component {
             {
               user: 'reply user3',
               reply: 'reply message3'
-            },
+            }
           ],
           date: '12/18/2017',
-          time: '5:19:44 PM',
-        },
+          time: '5:19:44 PM'
+        }
       ]
     };
     this.addPost = this.addPost.bind(this);
@@ -58,37 +58,32 @@ class App extends Component {
   push user post into stored array ->
   then set state of posts as new stored array
   */
- addPost(post) {
-   const currentPosts = this.state.posts;
-   currentPosts.push(post);
-   this.setState({
-     posts: currentPosts,
-   });
- }
+  addPost(post) {
+    const currentPosts = this.state.posts;
+    currentPosts.push(post);
+    this.setState({
+      posts: currentPosts
+    });
+  }
 
   render() {
     return (
       <div>
         <Switch>
           <Route
-            exact path='/posts'
-            render={() => (
-              <PostList posts={this.state.posts} />
-            )}
+            exact
+            path="/posts"
+            render={() => <PostList posts={this.state.posts} />}
           />
           <Route
-            path='/addpost'
-            render={() => (
-              <PostSubmit addPost={this.addPost} />
-            )}
+            path="/addpost"
+            render={() => <PostSubmit addPost={this.addPost} />}
           />
-        <Route
-          path='/posts/:id'
-          render={() => (
-            <PostEntryDetail posts={this.state.posts} />
-          )}
+          <Route
+            path="/posts/:id"
+            render={() => <PostEntryDetail posts={this.state.posts} />}
           />
-          <Redirect exact from='/' to='/posts' />
+          <Redirect exact from="/" to="/posts" />
           {/*<Route component={NoMatch} />*/}
         </Switch>
       </div>

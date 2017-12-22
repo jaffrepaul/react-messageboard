@@ -6,12 +6,12 @@ class PostEntryDetail extends React.Component {
     super(props);
     this.state = {
       reply: '',
-      user: '',
+      user: ''
     };
   }
 
   /*
-  
+
   */
   render() {
     return (
@@ -20,19 +20,20 @@ class PostEntryDetail extends React.Component {
         <p>By: {this.props.history.location.state.post.user}</p>
         <p>{this.props.history.location.state.post.message}</p>
         ------
-          <div>
-            Responses
-              {this.props.history.location.state.post.replies.map((reply, idx) => {
-              return (
-                <div key={idx}>
-                  {reply.user}
-                  {reply.reply}
-                </div>
-              )
-            }
-            )}
-          </div>
-        <button><Link to='/posts'>Back to Posts</Link></button>
+        <div>
+          Responses
+          {this.props.history.location.state.post.replies.map((reply, idx) => {
+            return (
+              <div key={idx}>
+                {reply.user}
+                {reply.reply}
+              </div>
+            );
+          })}
+        </div>
+        <button>
+          <Link to="/posts">Back to Posts</Link>
+        </button>
       </div>
     );
   }

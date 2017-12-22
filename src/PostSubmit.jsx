@@ -7,7 +7,7 @@ class PostSubmit extends React.Component {
     this.state = {
       title: '',
       message: '',
-      user: '',
+      user: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.createPost = this.createPost.bind(this);
@@ -38,13 +38,13 @@ class PostSubmit extends React.Component {
       title: this.state.title,
       message: this.state.message,
       user: this.state.user,
-      replies: [],
+      replies: []
     });
-    alert('Your post has been submitted')
+    alert('Your post has been submitted');
     this.setState({
       title: '',
       message: '',
-      user: '',
+      user: ''
     });
     this.props.history.push('/posts');
   }
@@ -53,26 +53,39 @@ class PostSubmit extends React.Component {
     this.setState({
       title: '',
       message: '',
-      user: '',
-    })
+      user: ''
+    });
   }
 
   render() {
     return (
       <form>
         Title
-        <input name='title' placeholder="Add Post Title" value={this.state.title} onChange={this.handleChange} />
-
+        <input
+          name="title"
+          placeholder="Add Post Title"
+          value={this.state.title}
+          onChange={this.handleChange}
+        />
         Message
-        <textarea name='message' placeholder="Add Post Message" value={this.state.message} onChange={this.handleChange} />
-
+        <textarea
+          name="message"
+          placeholder="Add Post Message"
+          value={this.state.message}
+          onChange={this.handleChange}
+        />
         User
-        <input name='user' placeholder="Add Username" value={this.state.user} onChange={this.handleChange} />
-
+        <input
+          name="user"
+          placeholder="Add Username"
+          value={this.state.user}
+          onChange={this.handleChange}
+        />
         <button onClick={this.clearPost}>Cancel</button>
         <button onClick={this.createPost}>Create Post</button>
-
-        <button><Link to='/posts'>Back to Posts</Link></button>
+        <button>
+          <Link to="/posts">Back to Posts</Link>
+        </button>
       </form>
     );
   }
