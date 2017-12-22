@@ -17,42 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [
-        {
-          title: 'title1',
-          content: 'content1',
-          user: 'user1',
-          replies: [
-            {
-              user: 'replyuser1',
-              message: 'message1'
-            },
-            {
-              user: 'replyuser2',
-              message: 'message2'
-            }
-          ],
-          date: '12/18/2017',
-          time: '5:19:44 PM'
-        },
-        {
-          title: 'title2',
-          content: 'content2',
-          user: 'user2',
-          replies: [
-            {
-              user: 'replyuser3',
-              message: 'message3'
-            },
-            {
-              user: 'replyuser4',
-              message: 'message4'
-            }
-          ],
-          date: '12/18/2017',
-          time: '5:19:44 PM'
-        }
-      ]
+      posts: []
     };
     this.addPost = this.addPost.bind(this);
     this.editPost = this.editPost.bind(this);
