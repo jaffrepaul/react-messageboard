@@ -66,34 +66,37 @@ class PostSubmit extends React.Component {
 
   render() {
     return (
-      <form>
-        Title
-        <input
-          name="title"
-          placeholder="Add Post Title"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        Message
-        <textarea
-          name="content"
-          placeholder="Add Post Message"
-          value={this.state.content}
-          onChange={this.handleChange}
-        />
-        User
-        <input
-          name="user"
-          placeholder="Add Username"
-          value={this.state.user}
-          onChange={this.handleChange}
-        />
-        <button onClick={this.clearPost}>Cancel</button>
-        <button onClick={this.createPost}>Create Post</button>
-        <button>
-          <Link to="/posts">Back to Posts</Link>
-        </button>
-      </form>
+      <div>
+        <h1>Create New Post</h1>
+        <form>
+          Title
+          <input
+            name="title"
+            placeholder="Add Post Title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+          Message
+          <textarea
+            name="content"
+            placeholder="Add Post Message"
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+          User
+          <input
+            name="user"
+            placeholder="Add Username"
+            value={this.state.user}
+            onChange={this.handleChange}
+          />
+          <button onClick={this.clearPost}>Cancel</button>
+          <button onClick={this.createPost}>Create Post</button>
+          <button>
+            <Link to="/posts">Back to Posts</Link>
+          </button>
+        </form>
+      </div>
     );
   }
 }
