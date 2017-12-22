@@ -51,6 +51,7 @@ class App extends Component {
       ]
     };
     this.addPost = this.addPost.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   /*
@@ -73,11 +74,13 @@ class App extends Component {
   pushes reply to currentPosts replies array of specific post using postID
   setState of posts to currentPosts (including reply)
   */
-  editPost(reply, postID) {
+  editPost(reply, postId, date, time) {
     const currentPosts = this.state.posts;
-    currentPosts[postID].replies.push(reply);
+    currentPosts[postId].replies.push(reply);
+    currentPosts[postId].date = date;
+    currentPosts[postId].time = time;
     this.setState({
-      posts: currentPosts
+      post: currentPosts
     });
   }
 

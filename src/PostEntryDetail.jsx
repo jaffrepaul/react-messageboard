@@ -9,7 +9,7 @@ class PostEntryDetail extends React.Component {
       user: ''
     };
     this.handleChange = this.handleChange.bind(this);
-    console.log(props);
+    this.addReply = this.addReply.bind(this);
   }
 
   handleChange(e) {
@@ -20,14 +20,32 @@ class PostEntryDetail extends React.Component {
   }
 
   /*
-  pass down func as props to this component to reply to post
-  create new func to call func at add.js
+  call func at add.js
   pass in values of form as state values & id from history
   clear form -> state back to empty string
   */
-  // addReply() {
-  //
-  // }
+  addReply() {
+    let a = Date.now();
+    a = new Date(a);
+    let b = a.toLocaleTimeString();
+    a = a.toLocaleDateString();
+
+    if (this.state.user && this.state.content) {
+      this.props.editPost(
+        {
+          user: this.state.user,
+          message: this.state.content
+        },
+        this.props.history.location.state.id,
+        a,
+        b
+      );
+      this.setState({
+        user: '',
+        content: ''
+      });
+    }
+  }
 
   /*
   note: could be refactored to have reply form sub component
@@ -48,11 +66,13 @@ class PostEntryDetail extends React.Component {
           {this.props.history.location.state.post.replies.map((reply, idx) => {
             return (
               <div key={idx}>
-                <p>{reply.user}:</p>
+                <p>{reply.user}</p>
                 <p>{reply.reply}</p>
               </div>
             );
           })}
+          {this.props.history.location.state.post.date}
+          {this.props.history.location.state.post.time}
         </div>
         <br />
         <hr />
@@ -72,9 +92,7 @@ class PostEntryDetail extends React.Component {
             value={this.state.user}
             onChange={this.handleChange}
           />
-          <button>
-            <Link to="/posts">Post Reply</Link>
-          </button>
+          <button onClick={this.addReply}>Post Reply</button>
         </form>
       </div>
     );

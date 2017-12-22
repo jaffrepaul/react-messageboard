@@ -34,19 +34,27 @@ class PostSubmit extends React.Component {
   */
   createPost(e) {
     e.preventDefault();
-    this.props.addPost({
-      title: this.state.title,
-      message: this.state.message,
-      user: this.state.user,
-      replies: []
-    });
-    alert('Your post has been submitted');
-    this.setState({
-      title: '',
-      message: '',
-      user: ''
-    });
-    this.props.history.push('/posts');
+
+    let a = Date.now();
+    a = new Date(a);
+    let b = a.toLocaleTimeString();
+    a = a.toLocaleDateString();
+
+    if (this.state.title && this.state.content) {
+      this.props.addPost({
+        title: this.state.title,
+        message: this.state.message,
+        user: this.state.user,
+        replies: []
+      });
+      alert('Your post has been submitted');
+      this.setState({
+        title: '',
+        message: '',
+        user: ''
+      });
+      this.props.history.push('/posts');
+    }
   }
 
   clearPost() {
