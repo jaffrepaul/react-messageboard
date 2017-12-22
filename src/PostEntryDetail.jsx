@@ -53,6 +53,8 @@ class PostEntryDetail extends React.Component {
       <div>
         <h2>{this.props.history.location.state.post.title}</h2>
         <p>By: {this.props.history.location.state.post.user}</p>
+        <p>On:{this.props.history.location.state.post.date}{' '}
+          {this.props.history.location.state.post.time}</p>
         <p>{this.props.history.location.state.post.content}</p>
         <button>
           <Link to="/posts">Back to Posts</Link>
@@ -69,9 +71,6 @@ class PostEntryDetail extends React.Component {
               </div>
             );
           })}
-          Last Updated:
-          {this.props.history.location.state.post.date}{' '}
-          {this.props.history.location.state.post.time}
         </div>
         <br />
         <hr />
